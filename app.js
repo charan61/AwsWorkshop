@@ -9,14 +9,14 @@ const dbConfig = {
   host: 'database-1.c3k20uw0mfcf.us-east-1.rds.amazonaws.com', // Replace with your RDS endpoint
   user: 'admin',
   password: 'charanmm',
-  database: 'database-1',
+  database: 'database1',
 };
 
 // Route to fetch data from the database
 app.get('/data', async (req, res) => {
   try {
     const connection = await mysql.createConnection(dbConfig);
-    const [rows] = await connection.execute('SELECT * FROM your_table');
+    const [rows] = await connection.execute('SELECT * FROM cricketers');
     connection.end();
     res.json(rows);
   } catch (error) {
